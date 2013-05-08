@@ -1,9 +1,4 @@
-%if 0%{?fedora} > 12 || 0%{?rhel} > 6
 %global with_python3 1
-%else
-%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print (get_python_lib())")}
-%endif
-
 %global upname d2to1
 
 Name: python-%{upname}
@@ -74,12 +69,12 @@ popd
 %{__python} setup.py install -O1 --skip-build --root  %{buildroot}
 
 %files
-%doc CHANGES LICENSE README
+%doc LICENSE README.rst
 %{python_sitelib}/*
 
 %if 0%{?with_python3}
 %files -n python3-d2to1
-%doc CHANGES LICENSE README
+%doc LICENSE README.rst
 %{python3_sitelib}/*
 %endif # with_python3
 
