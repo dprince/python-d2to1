@@ -1,4 +1,4 @@
-%global with_python3 1
+%global with_python3 0
 %global upname d2to1
 
 Name: python-%{upname}
